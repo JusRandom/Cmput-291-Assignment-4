@@ -7,9 +7,9 @@ def main():
     print(mydb.list_collection_names())
     
     myquery = {'''db.artiststracks.aggregate([
-              {$unwind: "$tracks" },     
-              {$match:{"tracks.track_id":{ $regex:/^70/ }} }, 
-              {$group:{_id:null, avg_danceability:{$avg:"$tracks.danceability"}}}]);
+...                 {$unwind: "$tracks" },
+...                 {$match:{"tracks.track_id":{ $regex:/^70/ }} },
+...                 {$group:{_id:'', avg_danceability:{$avg:"$tracks.danceability"}}}]);
     '''}
     mydoc = mycol.find(myquery)
 
